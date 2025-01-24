@@ -1,0 +1,42 @@
+{
+	"sources" : [
+		{ "url": "https://git.yoctoproject.org/poky/", "branch": "scarthgap", "rev":"f43f393ef0246b7bee6eed8bcf8271cf2b8cdf40", "dir":"poky/"},
+		{ "url": "https://github.com/openembedded/meta-openembedded.git", "branch": "scarthgap","rev":"80e01188fa822d87d301ee71973c462d7a865493", "dir":"meta-openembedded"},
+		{ "url": "https://github.com/agherzan/meta-raspberrypi.git", "branch": "scarthgap","rev":"6df7e028a2b7b2d8cab0745dc0ed2eebc3742a17", "dir":"meta-raspberrypi"}
+	],
+
+	"layers" : [
+		"poky/meta-poky",
+		"poky/meta",
+		"meta-raspberrypi"
+	],
+
+	"local.conf": [
+		"INHERIT+='rm_work'",
+		"IMAGE_FSTYPES += 'wic wic.bmap'",
+		"MACHINE='raspberrypi4-64'",
+		"ENABLE_UART = '1'"
+		
+	],
+
+	"builds" : {
+
+		"rpi4-linux": {
+			"notes" : [
+				"The `core-image-minimal` image for raspberry pi 4 model B"
+			],
+
+			"target" : "core-image-minimal",
+
+			"local.conf": [
+
+			],
+
+			"layers" : [
+
+			]
+
+		}
+
+	}
+}
